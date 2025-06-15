@@ -14,5 +14,17 @@ const getHumanChoice = () => {
 const playRound = (humanChoice, computerChoice) => {
   if (humanChoice === computerChoice) {
     console.log("draw");
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+    humanScore++;
+    console.log("You win! Rock beats Scissors");
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
+    humanScore++;
+    console.log("You win! Paper beats Rock");
+  } else if (humanChoice === "scissors" && computerChoice == "paper") {
+    humanScore++;
+    console.log("You win! Scissors beats Paper");
+  } else {
+    computerScore++;
+    console.log("You Lose");
   }
 };
