@@ -1,0 +1,20 @@
+body {
+  height: 100vh;
+  background-color: rgb(100, 24, 151);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-container {
+  margin-top: -80px;
+}
+.game-container button {
+  padding: 8px 30px;
+  border-radius: 5px;
+  border: 2px solid white;
+  background-color: rgb(21, 38, 94);
+  color: white;
+  font-size: 1.4rem;
+  margin: 0 20px;
+  cursor: pointer;
+}

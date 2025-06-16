@@ -29,12 +29,8 @@ const playRound = (humanChoice, computerChoice) => {
   }
 };
 
-const playGame = () => {
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-  }
-  console.log("Human score:", humanScore);
-  console.log("Computer score:", computerScore);
-};
+const computerChoiceButton = document.createElement("button");
+const humanChoiceButton = document.createElement("button");
+const playRoundButton = document.createElement("button");
 
-playGame();
+playRoundButton.addEventListener("click", playRound);
