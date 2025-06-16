@@ -29,12 +29,23 @@ const playRound = (humanChoice, computerChoice) => {
     computerScore++;
     resultsContainer.innerHTML = `<p>You Lose :(</p>`;
   }
+
+  resultsContainer.innerHTML += `<p>Human score: ${humanScore}</p>
+                                  <p>Computer score ${computerScore}</p>`;
+
+  if (humanScore === 5 || computerScore === 5) {
+    resultsContainer.innerHTML =
+      humanScore === 5
+        ? "Human has won the game! " + "score: " + humanScore
+        : "Computer wins";
+  }
 };
 
 const buttons = document.querySelectorAll(".game-container button");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", (e) =>
-    playRound(e.currentTarget.value, getComputerChoice())
-  );
+  button.addEventListener("click", (e) => {
+    if (humanScore < 5 && computerScore < 5)
+      playRound(e.currentTarget.value, getComputerChoice());
+  });
 });
