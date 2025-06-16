@@ -12,20 +12,22 @@ const getHumanChoice = () => {
 };
 
 const playRound = (humanChoice, computerChoice) => {
-  if (humanChoice === computerChoice) {
-    console.log("draw");
-  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+  const resultsContainer = document.querySelector(".results-container");
+
+  const isDraw = humanChoice === computerChoice;
+  const humanHasWon =
+    (humanChoice === values[0] && computerChoice === values[2]) ||
+    (humanChoice === values[1] && computerChoice === values[0]) ||
+    (humanChoice === values[2] && computerChoice === values[1]);
+
+  if (isDraw) {
+    resultsContainer.innerHTML = `<p>It's a draw!</p>`;
+  } else if (humanHasWon) {
     humanScore++;
-    console.log("You win! Rock beats Scissors");
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    humanScore++;
-    console.log("You win! Paper beats Rock");
-  } else if (humanChoice === "scissors" && computerChoice == "paper") {
-    humanScore++;
-    console.log("You win! Scissors beats Paper");
+    resultsContainer.innerHTML = `<p>You win! ${humanChoice} beats ${computerChoice}</p>`;
   } else {
     computerScore++;
-    console.log("You Lose");
+    resultsContainer.innerHTML = `<p>You Lose :(</p>`;
   }
 };
 
