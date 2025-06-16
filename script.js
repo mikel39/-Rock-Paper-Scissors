@@ -29,8 +29,10 @@ const playRound = (humanChoice, computerChoice) => {
   }
 };
 
-const computerChoiceButton = document.createElement("button");
-const humanChoiceButton = document.createElement("button");
-const playRoundButton = document.createElement("button");
+const buttons = document.querySelectorAll(".game-container button");
 
-playRoundButton.addEventListener("click", playRound);
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) =>
+    playRound(e.currentTarget.value, getComputerChoice())
+  );
+});
